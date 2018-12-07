@@ -6,7 +6,7 @@ public class TeleportPlayer : MonoBehaviour {
 
     List<GameObject> gameObjects = new List<GameObject>();
 
-    public void Teleport(Vector3 position, float size)
+    public void Teleport(Vector3 position)
     {
         gameObjects.ForEach(g => g.SetActive(true));
         gameObjects.Clear();
@@ -14,7 +14,7 @@ public class TeleportPlayer : MonoBehaviour {
         transform.position = position;
         Debug.Log(position);
 
-        Collider[] colliders = Physics.OverlapSphere(position, size / 2 + 0.1f);
+        Collider[] colliders = Physics.OverlapSphere(position,0.5f);
         new List<Collider>(colliders).ForEach(c => gameObjects.Add(c.gameObject));
         gameObjects.ForEach(g => g.SetActive(false));
     }
