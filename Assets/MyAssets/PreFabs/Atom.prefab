@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4822235783496688}
   - component: {fileID: 114622208678016492}
   m_Layer: 0
-  m_Name: Atom{0,0}
+  m_Name: Atom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

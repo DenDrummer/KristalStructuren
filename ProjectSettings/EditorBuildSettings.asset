@@ -8,4 +8,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MyAssets/Scenes/KristalScene.unity
     guid: ef2b139daea8c5048b2fe596e0a6e568
+  - enabled: 1
+    path: Assets/MyAssets/Scenes/SampleScene.unity
+    guid: c34f6b47bddeac04f8b6486d5676292d
+  - enabled: 1
+    path: Assets/MyAssets/Scenes/AtomTest.unity
+    guid: cab701cdd2ba19041815315ff0ef2162
+  - enabled: 1
+    path: Assets/MyAssets/Scenes/HoofdMenuScene.unity
+    guid: 72c528c093ed2ec419aa7945fa7a17a3
+  - enabled: 1
+    path: Assets/MyAssets/Scenes/MainScene.unity
+    guid: 46e38d2eb5fba764e8fde74af1980ea0
+  - enabled: 1
+    path: Assets/MyAssets/Scenes/MainVrGameProject.unity
+    guid: 601bd7ecb40ab964da35ee975538ec7c
+  - enabled: 1
+    path: Assets/MyAssets/Scenes/ModelTest.unity
+    guid: 1cb6b0beb9cb1c641814bb35b517ebcb
   m_configObjects: {}

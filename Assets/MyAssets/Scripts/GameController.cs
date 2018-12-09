@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
+using System.IO;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
@@ -27,9 +27,9 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		
 	}
-    /*
+    
     void setElementen() {
-        using (var reader = new StreamReader(@"D:\School\VR\VRKristalStructuur\Assets\MyAssets\Data\data.csv")) {
+        using (var reader = new StreamReader(@"Assets/MyAssets/Data/data.csv")) {
             //Eerste lijn met benamingen skippen
             reader.ReadLine();
             while (!reader.EndOfStream)
@@ -42,5 +42,5 @@ public class GameController : MonoBehaviour {
 
             }
         }
-    }*/
+    }
 }
