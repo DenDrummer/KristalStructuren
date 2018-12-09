@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+  - enabled: 0
+    path: Assets/MyAssets 1/Scenes/MainScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Environment/morgue scene/morgue.unity
+    guid: 845128cf95f90184697fffb609346de8
+  - enabled: 1
+    path: Assets/MyAssets 1/Scenes/QuantumWorld.unity
+    guid: 689b1e26a04007e44a8381174a04707e
   m_configObjects: {}
