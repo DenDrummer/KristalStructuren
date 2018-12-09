@@ -10,28 +10,34 @@ public class UiColorChangeManager : MonoBehaviour {
     private Image materialsChildren;
 
 	void Start () {
-        
-        //Fetch the Renderer from the GameObject
-	    materialParent = transform.parent.GetComponent<Renderer>().material;
-	    materialsChildren = GetComponentInChildren<Image>();
 
-	    //foreach (Image mat in materialsChildren)
-	    //{
-	        materialsChildren.color = materialParent.color;
-	    //}
-        /*
-	    //Set the main Color of the Material to green
-            rend.material.shader = Shader.Find("_Color");
-        rend.material.SetColor("_Color", Color.green);
-
-        //Find the Specular shader and change its Color to red
-        rend.material.shader = Shader.Find("Specular");
-        rend.material.SetColor("_SpecColor", Color.red);
-        */
+	    //ChangeUIColor();
+        //ChangeButtonColor();
     }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    void ChangeUIColor()
+    {
+        //Fetch the Renderer from the GameObject
+        materialParent = transform.parent.GetComponent<Renderer>().material;
+        materialsChildren = GetComponentInChildren<Image>(true);
+
+        //foreach (Image mat in materialsChildren)
+        //{
+        materialsChildren.color = materialParent.color;
+        //}
+    }
+
+    void ChangeButtonColor()
+    {
+        Button[] buttons = transform.GetComponentsInChildren<Button>(true);
+        foreach (Button button in buttons)
+        {
+            button.GetComponent<Image>().material.color = materialParent.color*1.5f;
+        }
+    }
 }
