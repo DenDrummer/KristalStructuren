@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,6 +12,21 @@ public class Teleport : MonoBehaviour,IPointerClickHandler {
 	// Use this for initialization
 	void Start () {
 		teleportPlayer = GameObject.Find("Player").GetComponent<TeleportPlayer>();
+		string path = Application.persistentDataPath + "/test.txt";
+		if (!File.Exists(path))
+		{
+			using (StreamWriter sw = File.CreateText(path))
+			{
+				sw.WriteLine("Testing");
+			}
+		}
+		else
+		{
+			using (StreamWriter sw = File.AppendText(path))
+			{
+				sw.WriteLine("File Found");
+			}
+		}
 	}
 
 	void Update()
