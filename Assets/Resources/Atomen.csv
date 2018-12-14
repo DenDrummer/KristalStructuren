@@ -1,0 +1,61 @@
+Number,Symbol,Name,Mass,Electronegativity,Density,Melt,Boil,Radius,Discovered,Oxidations,Color,Category
+1,H,Hydrogen,1.0008,2.2,0.09,-259,-252,120,1766,-1;0;+1,ffffff,reactive nonmetals
+2,He,Helium,4.003,0,0.18,-272,-268,140,1895,0,d9ffff,noble gasses
+3,Li,Lithium,6.941,0.98,535,180,1330,182,1817,0;+1,cc80ff,alkali metals
+4,Be,Beryllium,9.012,1.57,1848,1287,2970,153,1797,0;+1;+2,c2ff00,alkaline earth metals
+5,B,Boron,10.811,2.04,2460,2076,3927,192,1808,0;+1;+2;+3;ffb5b5,metalloids
+6,C,Carbon,12.011,2.55,2260,3500,4027,170,-3750,-4;-3;-2;-1;0;+1;+2;+3;+4,909090,reactive nonmetals
+7,N,Nitrogen,14.007,3.04,1.25,-210,-195,155,1772,-3;-2;-1;0;+1;+2;+3;+4;+5,3050f8,reactive nonmetals
+8,O,Oxygen,15.999,3.44,1.43,-218,-182,152,1774,-2;-1;0;+1;+2,ff0d0d,reactive nonmetals
+9,F,Fluorine,18.998,3.98,1.7,-219,-188,135,1886,-1;0,90e050,reactive nonmetals
+10,Ne,Neon,20.180,0,0.9,-248,-246,154,1898,0,b3e3f5,noble gasses
+11,Na,Sodium,22.990,0.93,968,97,883,227,1807,-1;0;+1,ab5cf2,alkali metals
+12,Mg,Magnesium,24.305,1.31,1738,650,1090,173,1755,0;+1;+2,8aff00,alkaline earth metals
+13,Al,Aluminium,26.982,1.61,2700,660,2470,184,1825,0;+1;+2;+3,bfa6a6,post-transition metals
+14,Si,Silicon,28.086,1.9,2330,1414,3265,210,1824,-4;-3;-2;-1;0;+1;+2;+3;+4,f0c8a0,metalloids
+15,P,Phosphorus,30.974,2.19,1823,44,277,180,1669,-3;-2;-1;0;+1;+2;+3;+4;+5,ff8000,reactive nonmetals
+16,S,Sulfur,32.066,2.58,1960,115,444,180,-2000,-2;-1;0;+1;+2;+3;+4;+5;+6,ffff30,reactive nonmetals
+17,Cl,Chlorine,35.453,3.16,3.21,-101,-34,175,1774,-1;0;+1;+2;+3;+4;+5;+6;+7,1ff01f,reactive nonmetals
+18,Ar,Argon,39.948,0,1.78,-189,-185,210,1894,0,80d1e3,noble gasses
+19,K,Potassium,29.098,0.82,856,63,759,275,1807,-1;0;+1,8f40d4,alkali metals
+20,Ca,Calcium,40.078,1,1550,842,1484,231,1808,0;+1;+2,3dff00,alkaline earth metals
+21,Sc,Scandium,44.956,1.36,2985,1541,2836,211,1879,0;+1;+2;+3,e6e6e6,transition metals
+22,Ti,Titanium,47.880,1.54,4507,1668,3287,,1791,-1;0;+1;+2;+3;+4,bfc2c7,transition metals
+23,V,Vanadium,50.942,1.63,6110,1910,3407,,1801,-1;0;+1;+2;+3;+4;+5,a6a6ab,transition metals
+24,Cr,Chromium,51.996,1.66,7140,1907,2482,,1780,-2;-1;0;+1;+2;+3;+4;+5;+6,8a99c7,transition metals
+25,Mn,Manganese,54.938,1.55,7470,1246,2061,,1774,-3;-2;-1;0;+1;+2;+3;+4;+5;+6;+7,9c7ac7,transition metals
+26,Fe,Iron,55.933,1.83,7874,1538,2861,,-5000,-2;-1;0;+1;+2;+3;+4;+5;+6,e06633,transition metals
+27,Co,Cobalt,58.933,1.88,8900,1495,2927,,1739,-1;0;+1;+2;+3;+4;+5,f090a0,transition metals
+28,Ni,Nickel,58.693,1.91,8908,1455,2730,163,1751,-1;0;+1;+2;+3;+4,50d050,transition metals
+29,Cu,Copper,63.546,1.9,8920,1084,2562,140,-9000,0;+1;+2;+3;+4,c88033,transition metals
+30,Zn,Zinc,65.390,1.65,7140,419,907,139,-1000,0;+1;+2,7d80b0,post-transition metals;transition metals
+31,Ga,Gallium,69.732,1.81,5904,29,2400,187,1875,0;+1;+2;+3,c28f8f,post-transition metals
+32,Ge,Germanium,72.61,2.01,5323,938,2833,211,1886,-4;-3;-2;-1;0;+1;+2;+3;+4,668f8f,metalloids
+33,As,Arsenic,74.922,2.18,5727,817,614,185,-2500,-3;0;+1;+2;+3;+5,bd80e3,metalloids
+34,Se,Selenium,78.09,2.55,4819,221,685,190,1817,-2;0;+1;+2;+4;+6,ffa100,reactive nonmetals
+35,Br,Bromine,79.904,2.96,3120,-7,59,185,1826,-1;0;+1;+2;+3;+4;+5;+7,a62929,reactive nonmetals
+36,Kr,Krypton,84.800,3,3.75,-157,-153,202,1898,0;+2,5cb8d1,noble gasses
+37,Rb,Rubidium,84.468,0.82,1532,39,688,303,1861,-1;0;+1,702eb0,alkali metals
+38,Sr,Strontium,87.620,0.95,2630,777,1382,249,1790,0;+1;+2,00ff00,alkaline earth metals
+
+39,Y,Yttrium,88.906,1.22,4472,1526,2930,,1794,0;+1;+2;+3,,
+40,Zr,Zirconium,91.224,1.33,6511,1855,4377,,1789,0;+1;+2;+3;+4,,
+41,Nb,Niobium,92.906,1.6,8570,2477,4744,,1801,,-1;0;+1;+2;+3;+4;+5,,
+42,Mo,Molybdenum,95.940,2.16,10280,2623,4639,,1781,-2;-1;0;+1;+2;+3;+4;+5;+6,,
+43,Tc,Technetium,98.907,1.9,11500,2157,4265,,1937,-3;-1;0;+1;+2;+3;+4;+5;+6;+7,,
+44,Ru,Ruthenium,
+45,Rh,Rhodium,
+46,Pd,Palladium,
+47,Ag,Silver,
+48,Cd,Cadmium,
+
+49,In,Indium,114.818,1.78,7310,156,2072,193,1863,0;+1;+2;+3,a67573,post-transition metals
+50,Sn,Tin,118.710,1.96,7310,232,2602,217,-3500,-4;0;+2;+4,668080,post-transition metals
+51,Sb,Antimony,121.760,2.05,6697,630,1635,206,-3000,-3;0;+3;+5,9e63b5,metalloids
+52,Te,Tellurium,127.600,2.1,6240,449,988,206,1783,-2;0;+2;+4;+5;+6,d47a00,metalloids
+53,I,Iodine,126.904,2.66,4940,113,184,198,1811,-1;0;+1;+3;+4;+5;+7,940094,reactive nonmetals
+54,Xe,Xenon,131.290,2.6,5.9,-111,-108,216,1898,0;+1;+2;+4;+6;+8,429eb0,noble gasses
+55,Cs,Caesium,132.905,0.79,1879,28,671,343,1860,-1;0;+1,57178f,alkali metals
+56,Ba,Barium,137.327,0.89,3510,727,1640,268,1808,0;+2,00c900,alkaline earth metals
+72,Hf,Hafnium,178.490,1.3,13310,2233,4603,,1923,0;+2;+3;+4,4dc2ff,transition metals
+73,Ta,Tantalum,180.948,1.5,16650,3017,5458,,1802,-1;0;+2;+3;+4;+5,4da6ff,transition metals
