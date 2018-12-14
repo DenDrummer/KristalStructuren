@@ -27,6 +27,10 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    void setBondsClosest() {
+
+    }
     /*
     void setElementen() {
         using (var reader = new StreamReader(@"D:\School\VR\VRKristalStructuur\Assets\MyAssets\Data\data.csv")) {

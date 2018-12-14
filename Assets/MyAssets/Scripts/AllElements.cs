@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class AllElements{
+public static class AllElements{
 
-    List<Element> MendeljevElementen;
+    static List<Element> MendeljevElementen;
 
-    public AllElements() {
+    static AllElements() {
         MendeljevElementen = new List<Element>();
         setElementen();
     }
 
-    void setElementen()
+    static void setElementenHardCoded() {
+
+    }
+    static void setElementen()
     {
-        using (var reader = new StreamReader(@"D:\School\VR\VRKristalStructuur\Assets\MyAssets\Data\data.csv"))
+        string hardCoded="";
+        using (var reader = new StreamReader(@".\Assets\Resources\data.csv"))
         {
             //Eerste lijn met benamingen skippen
             reader.ReadLine();
@@ -22,13 +26,16 @@ public class AllElements{
             {
                 var line = reader.ReadLine();
                 var values = line.Split(',');
-                Element element = new Element(values[0],values[1],values[2],values[3],values[4],values[9]);
+                hardCoded=hardCoded+'\n'+"MendeljevElementen.Add(new Element(" +'\"' +values[0] + '\"' + ',' + '\"' + values[1] + '\"' + ',' + '\"' + values[2] + '\"' + ',' + '\"' + values[3] + '\"' + ',' + '\"' 
+                    + values[4] + '\"' + ',' + '\"' + values[9] + "\",\"" +values[8]+ "\""+",\"" + values[7] + "\"));";
+                Element element = new Element(values[0],values[1],values[2],values[3],values[4],values[9],values[8]);
                 MendeljevElementen.Add(element);
             }
         }
+        Debug.Log(hardCoded);
     }
 
-    public Element getElement(string element) {
+    public static Element getElement(string element) {
         foreach (Element e in MendeljevElementen) {
             if (element.Equals(e.abbreviation)){
                 return e;
