@@ -37,10 +37,10 @@ public class Structure{
             {
                 Vector3 positie= new Vector3((float)a.x + (maxX * count), (float)a.y+yOffset, (float)a.z+zOffset);
                 if (!Physics.CheckSphere(positie,(float)0.001))
-                {
-                   
+                {                  
                     GameObject gameObject=GameObject.Instantiate(atom.gameObject,positie,Quaternion.identity);
                     gameObject.name = a.element.abbreviation;
+                    gameObject.transform.localScale = (gameObject.transform.localScale * a.element.atomicRadius)/100;
                     Renderer renderer = gameObject.GetComponent<Renderer>();
                     renderer.material.color = new Color(a.element.color.r/255, a.element.color.g/255, a.element.color.b/255);
                 }

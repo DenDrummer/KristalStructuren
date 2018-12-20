@@ -28,7 +28,7 @@ public static class AllElements{
                 var values = line.Split(',');
                 hardCoded=hardCoded+'\n'+"MendeljevElementen.Add(new Element(" +'\"' +values[0] + '\"' + ',' + '\"' + values[1] + '\"' + ',' + '\"' + values[2] + '\"' + ',' + '\"' + values[3] + '\"' + ',' + '\"' 
                     + values[4] + '\"' + ',' + '\"' + values[9] + "\",\"" +values[8]+ "\""+",\"" + values[7] + "\"));";
-                Element element = new Element(values[0],values[1],values[2],values[3],values[4],values[9],values[8]);
+                Element element = new Element(values[0],values[1],values[2],values[3],values[4],values[9],values[7]);
                 MendeljevElementen.Add(element);
             }
         }
