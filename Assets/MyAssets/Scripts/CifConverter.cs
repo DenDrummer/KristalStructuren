@@ -14,11 +14,11 @@ public class CifConverter : MonoBehaviour
     private float gamma;
     private Dictionary<string, List<string>> atoms = new Dictionary<string, List<string>>();
     private Dictionary<string, List<string>> symmetry = new Dictionary<string, List<string>>();
-
+    private Structure structure;
     private void Start()
     {
         string path = @"D:\Downloads\LiCo.cif";
-        //Convert(path);
+        Convert(path);
         
         Debug.Log(a);
         Debug.Log(b);
@@ -28,6 +28,7 @@ public class CifConverter : MonoBehaviour
         Debug.Log(gamma);
         Debug.Log(atoms.Count);
         Debug.Log(symmetry.Count);
+        structure.drawFromCifTest(a,b,c,alpha,beta,gamma,atoms,symmetry);
     }
 
     public void Convert(string path)

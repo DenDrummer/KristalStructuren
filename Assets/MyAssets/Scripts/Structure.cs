@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +19,16 @@ public class Structure{
         maxY = maxKubus;
         maxZ = maxKubus;
     }
+
+    internal void drawFromCifTest(float a, float b, float c, float alpha, float beta, float gamma, Dictionary<string, List<string>> atoms, Dictionary<string, List<string>> symmetry)
+    {
+        maxX = a;
+        maxY = b;
+        maxZ = c;
+
+        throw new NotImplementedException();
+    }
+
     //Draws the structure in prime position
     /*public void drawSingleStruct() {
         foreach (Atom a in atoms)
@@ -27,8 +38,8 @@ public class Structure{
         }
     }*/
 
-   
-    
+
+
     public void drawAlongXAxis(float zOffset,float yOffset) {
        int count = 0;
         while (count < SIZE)
