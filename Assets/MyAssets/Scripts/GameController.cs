@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        // Ti Ni
+        /*
         atoms.Add(new Atom(0, 0, 0,"Ni"));
         atoms.Add(new Atom(3.0149999, 0, 0,"Ni"));
         atoms.Add(new Atom(0, 3.0149999, 0, "Ni"));
@@ -20,6 +22,20 @@ public class GameController : MonoBehaviour {
         atoms.Add(new Atom(3.0149999 / 2, 3.0149999 / 2, 3.0149999 / 2, "Ti"));
         atoms.Add(new Atom(3.0149999, 3.0149999, 3.0149999, "Ni"));
         structure1 = new Structure(atoms,(float) 3.0149999,atom);
+        */
+        // Ti Beta
+        atoms.Add(new Atom(0, 0, 0, "Ti"));
+        atoms.Add(new Atom(3.3065, 0, 0, "Ti"));
+        atoms.Add(new Atom(0, 3.3065, 0, "Ti"));
+        atoms.Add(new Atom(0, 0, 3.3065, "Ti"));
+        atoms.Add(new Atom(3.3065, 3.3065, 0, "Ti"));
+        atoms.Add(new Atom(3.3065, 0, 3.3065, "Ti"));
+        atoms.Add(new Atom(0, 3.3065, 3.3065, "Ti"));
+        atoms.Add(new Atom(3.3065 / 2, 3.3065 / 2, 3.3065 / 2, "Ti"));
+        atoms.Add(new Atom(3.3065, 3.3065, 3.3065, "Ti"));
+        structure1 = new Structure(atoms, (float)3.3065, atom);
+        //
+
         structure1.drawEveryLayer();
     }
 	

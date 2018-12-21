@@ -17,8 +17,9 @@ public class CifConverter : MonoBehaviour
 
     private void Start()
     {
-        string path = @"C:\Users\Marnick\Downloads\austenite+-+B2.cif";
-        Convert(path);
+        string path = @"D:\Downloads\LiCo.cif";
+        //Convert(path);
+        
         Debug.Log(a);
         Debug.Log(b);
         Debug.Log(c);
