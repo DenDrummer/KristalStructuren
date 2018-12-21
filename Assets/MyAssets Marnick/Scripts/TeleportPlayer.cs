@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeleportPlayer : MonoBehaviour {
+public class TeleportPlayer : MonoBehaviour
+{
 
     List<GameObject> gameObjects = new List<GameObject>();
 
     public void Teleport(Vector3 position)
     {
-        gameObjects.ForEach(g => g.SetActive(true));
-        gameObjects.Clear();
+        if (UserStats.State.Equals(State.Teleport))
+        {
+            gameObjects.ForEach(g => g.SetActive(true));
+            gameObjects.Clear();
 
-        transform.position = position;
-        Debug.Log(position);
+            transform.position = position;
+            Debug.Log(position);
 
-        Collider[] colliders = Physics.OverlapSphere(position,0.5f);
-        new List<Collider>(colliders).ForEach(c => gameObjects.Add(c.gameObject));
-        gameObjects.ForEach(g => g.SetActive(false));
+            Collider[] colliders = Physics.OverlapSphere(position, 0.5f);
+            new List<Collider>(colliders).ForEach(c => gameObjects.Add(c.gameObject));
+            gameObjects.ForEach(g => g.SetActive(false));
+        }
     }
 }

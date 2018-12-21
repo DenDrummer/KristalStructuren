@@ -7,7 +7,8 @@ public class GameController : MonoBehaviour {
     public Transform atom;
     List<Atom> atoms=new List<Atom>();
     Structure structure1;
-    [SerializeField]private GameObject bondController;
+    [SerializeField]
+    private GameObject bondController;
 
     // Use this for initialization
     void Start() {
@@ -31,7 +32,7 @@ public class GameController : MonoBehaviour {
 		
 	}
     
-    void setElementen() {
+    void SetElementen() {
         using (var reader = new StreamReader(@"Assets\MyAssets Jorne\Data\data.csv")) {
             //Eerste lijn met benamingen skippen
             reader.ReadLine();

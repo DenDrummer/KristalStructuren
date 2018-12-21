@@ -5,7 +5,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LookAtAtomManager : MonoBehaviour {
+public class LookAtAtomManager : MonoBehaviour
+{
 
     private Renderer myRenderer;
     private Color color;
@@ -17,13 +18,13 @@ public class LookAtAtomManager : MonoBehaviour {
     {
         myRenderer = GetComponent<Renderer>();
         color = myRenderer.material.color;
-        gazedAtColor = color*1.5f;
+        gazedAtColor = color * 1.5f;
         gazedAtColor.a = 1;
         activateMenu = true;
-        
+
     }
 
-    void update()
+    void Update()
     {
         //float emission = Mathf.PingPong(Time.time, 1.0f);
         //Color baseColor = color; 
@@ -33,12 +34,12 @@ public class LookAtAtomManager : MonoBehaviour {
 
     public void SetGazedAt(bool gazedAt)
     {
-        if (gazedAt)
+        if (gazedAt && (UserStats.State.Equals(State.SelectAtom) || UserStats.State.Equals(State.MeasureDistance)))
         {
             //myRenderer.material.color = gazedAtColor;
-            myRenderer.material.SetColor("_EmissionColor", new Color(0.15f,0.15f,0.15f));
+            myRenderer.material.SetColor("_EmissionColor", new Color(0.15f, 0.15f, 0.15f));
         }
-        else
+        else if (!gazedAt)
         {
             //myRenderer.material.color = color;
             myRenderer.material.SetColor("_EmissionColor", Color.black);
@@ -47,16 +48,19 @@ public class LookAtAtomManager : MonoBehaviour {
 
     public void ClickAtom()
     {
-        atomGuis = GameObject.FindGameObjectsWithTag("atomgui");
-        if (atomGuis.Length > 0)
+        if (UserStats.State.Equals(State.SelectAtom))
         {
-            foreach (GameObject atomGui in atomGuis)
+            atomGuis = GameObject.FindGameObjectsWithTag("atomgui");
+            if (atomGuis.Length > 0)
             {
-                atomGui.SetActive(false);
+                foreach (GameObject atomGui in atomGuis)
+                {
+                    atomGui.SetActive(false);
+                }
             }
+            bool activeSelf = transform.GetChild(0).gameObject.activeSelf ? true : false;
+            transform.GetChild(0).gameObject.SetActive(activeSelf);
+            activateMenu = activateMenu ? false : true;
         }
-        bool activeSelf = transform.GetChild(0).gameObject.activeSelf ? true : false;
-        transform.GetChild(0).gameObject.SetActive(activeSelf);
-        activateMenu = activateMenu ? false : true;
     }
 }
