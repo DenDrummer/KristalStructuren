@@ -55,10 +55,8 @@ public class LookAtAtomManager : MonoBehaviour {
                 atomGui.SetActive(false);
             }
         }
-        foreach (Transform child in transform)
-        {
-            child.gameObject.SetActive(activateMenu);
-        }
+        bool activeSelf = transform.GetChild(0).gameObject.activeSelf ? true : false;
+        transform.GetChild(0).gameObject.SetActive(activeSelf);
         activateMenu = activateMenu ? false : true;
     }
 }

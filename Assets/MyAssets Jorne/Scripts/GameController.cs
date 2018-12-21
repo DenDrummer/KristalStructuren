@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour {
     public Transform atom;
     List<Atom> atoms=new List<Atom>();
     Structure structure1;
+    [SerializeField]private GameObject bondController;
 
     // Use this for initialization
     void Start() {
@@ -22,6 +23,7 @@ public class GameController : MonoBehaviour {
         atoms.Add(new Atom(3.0149999, 3.0149999, 3.0149999, "Ni"));
         structure1 = new Structure(atoms,(float) 3.0149999,atom);
         structure1.drawEveryLayer();
+        bondController.GetComponent<BondManager>().enabled = true;
     }
 	
 	// Update is called once per frame
@@ -35,7 +37,6 @@ public class GameController : MonoBehaviour {
             reader.ReadLine();
             while (!reader.EndOfStream)
             {
-                
                 var line = reader.ReadLine();
                 var values = line.Split(',');
                 Debug.Log(values[1]);
@@ -44,4 +45,6 @@ public class GameController : MonoBehaviour {
             }
         }
     }
+
+   
 }

@@ -11,7 +11,7 @@ public class VrControllerListenerQuantum : MonoBehaviour {
         //For VR controller
         if (Input.GetKeyDown(BluetoothReturn))
         {
-            transform.GetComponent<LookAtAtomManager>().ClickAtom();
+            transform.GetComponent<Teleport>().TeleportToAtom();
         }
     }
 }
