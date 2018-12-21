@@ -64,3 +64,9 @@ Number,Symbol,Name,Mass,Electronegativity,Density,Melt,Boil,Radius,Discovered,Ox
 78,Pt,Platinum,195.080,2.28,21090,1768,3825,175,1750,-2;-1;0;+1;+2;+3;+4;+5;+6,d0d0e0,transition metals
 79,Au,Gold,196.967,2.54,19300,1064,2970,166,-6000,-1;0;+1;+2;+3;+5,ffd123,transition metals
 80,Hg,Mercury,200.590,2,13534,-38.83,356,155,-2000,0;+1;+2;+4,b8b8d0,post-transition metals;transition metals
+81,Tl,Thallium,204.383,1.62,11850,304,1473,196,1861,-1;0;+1;+3,a6544d,post-transition metals
+82,Pb,Lead,207.2,2.33,11340,327,1749,202,-7000,-4;0;+2;+4,575961,post-transition metals
+83,Bi,Bismuth,208.980,2.02,9780,271,1564,207,1400,-3;0;+1;+3;+5,9e4fb5,post-transition metals
+84,Po,Polonium,208.982,2,9196,254,962,197,1898,-2;0;+2;+4;+5;+6,ab5c00,post-transition metals
+85,At,Astatine,209.987,2.2,,302,337,202,1940,-1;0;+1;+3;+5;+7,754f45,metalloids;nonmetals;metals
+86,Rn,Radon,222.018,2.2,9.73,-71,-62,220,1902,0;+2;+6,428296,noble gasses
