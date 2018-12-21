@@ -14,12 +14,11 @@ public class CifConverter : MonoBehaviour
     private float gamma;
     private Dictionary<string, List<string>> atoms = new Dictionary<string, List<string>>();
     private Dictionary<string, List<string>> symmetry = new Dictionary<string, List<string>>();
-    private Structure structure;
+
     private void Start()
     {
         string path = @"D:\Downloads\LiCo.cif";
         Convert(path);
-        
         Debug.Log(a);
         Debug.Log(b);
         Debug.Log(c);
@@ -28,7 +27,6 @@ public class CifConverter : MonoBehaviour
         Debug.Log(gamma);
         Debug.Log(atoms.Count);
         Debug.Log(symmetry.Count);
-        structure.drawFromCifTest(a,b,c,alpha,beta,gamma,atoms,symmetry);
     }
 
     public void Convert(string path)
@@ -53,7 +51,7 @@ public class CifConverter : MonoBehaviour
                             Debug.Log("atom key added");
                             line = sr.ReadLine();
                         }
-                        while (line != null && (!line.Trim().Equals("") && !line.Contains("loop_") && !line.Contains("#End of data")))
+                        while (line != null && (!line.Trim().Equals("") && !line.Contains("loop_") && !line.Contains("#End of data") && !line.StartsWith("_")))
                         {
                             Debug.Log(line);
                             string[] values = line.Split(" ".ToCharArray(), atoms.Count);
@@ -75,7 +73,7 @@ public class CifConverter : MonoBehaviour
                             Debug.Log("symmetry key added");
                             line = sr.ReadLine();
                         }
-                        while (line != null && (!line.Trim().Equals("") && !line.Contains("loop_") && !line.Contains("#End of data")))
+                        while (line != null && (!line.Trim().Equals("") && !line.Contains("loop_") && !line.Contains("#End of data") && !line.StartsWith("_")))
                         {
                             Debug.Log(line);
                             string[] values = line.Split(" ".ToCharArray(), symmetry.Count);
@@ -133,6 +131,6 @@ public class CifConverter : MonoBehaviour
     private float GetValue(string line, string tag)
     {
         int index = line.IndexOf(tag);
-        return float.Parse(line.Remove(index, tag.Length).Trim());
+        return float.Parse(line.Remove(index, tag.Length).Trim().Split("(".ToCharArray())[0]);
     }
 }
