@@ -25,7 +25,10 @@ public class CifConverter : MonoBehaviour
         Debug.Log(alpha);
         Debug.Log(beta);
         Debug.Log(gamma);
+        Debug.Log("stuff");
         Debug.Log(atoms.Count);
+        Debug.Log(atoms.Keys);
+        Debug.Log("stuff");
         Debug.Log(symmetry.Count);
     }
 

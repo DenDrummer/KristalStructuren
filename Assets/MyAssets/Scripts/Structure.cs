@@ -25,6 +25,10 @@ public class Structure{
         maxX = a;
         maxY = b;
         maxZ = c;
+        Vector3 vectorX = new Vector3(maxX, 0, 0);
+        Vector3 vectorY = new Vector3(0, maxY, 0);
+        Vector3 vectorZ = new Vector3(0, 0, maxZ);
+       
 
         throw new NotImplementedException();
     }
