@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class MenuAtomManager : MonoBehaviour
@@ -20,7 +19,6 @@ public class MenuAtomManager : MonoBehaviour
                 innerChild.gameObject.SetActive(activated);
             }
         }
-        activated = activated ? false : true;
+        activated = !activated;
     }
-
 }

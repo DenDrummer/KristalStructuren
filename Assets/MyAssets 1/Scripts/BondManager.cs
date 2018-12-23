@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections;
+
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BondManager : MonoBehaviour
 {
     private GameObject[] atoms;
-    [SerializeField] private Transform cylinderRef;
     private GameObject[] atomsParent;
 
-    [SerializeField] private int AmountOfClosestBonds = 1;
+    [SerializeField]
+    private Transform cylinderRef;
+    [SerializeField]
+    private int AmountOfClosestBonds = 1;
+
     // Use this for initialization
     void Start ()
     {
@@ -23,7 +25,7 @@ public class BondManager : MonoBehaviour
 
     void MakeBonds()
 	{
-	    float distance = 100f;
+	    //float distance = 100f;
 	    HashSet<float> distances = new HashSet<float>();
 	    float[] distancesArray;
 	    //Transform atomFirst = atoms[0];
@@ -50,14 +52,14 @@ public class BondManager : MonoBehaviour
         Array.Sort(distancesArray);
         for (int i = 0; i < AmountOfClosestBonds; i++)
 	    {
-            foreach (var bondDistanceBond in bonds.FindAll(b => Math.Abs(b.distance - distancesArray[i+1]) < 0.1))
+            foreach (var bondDistanceBond in bonds.FindAll(b => Math.Abs(b.Distance - distancesArray[i+1]) < 0.1))
 	        {
                 GameObject gameObject = GameObject.Instantiate(cylinderRef.gameObject, transform.position, Quaternion.identity);
                 Transform bondTransform = gameObject.GetComponentInChildren<Transform>();
-                gameObject.transform.localScale = new Vector3(1f, 1f, bondDistanceBond.distance / 2);
-                gameObject.transform.position = bondDistanceBond.atomFirst.transform.position;
-                gameObject.transform.LookAt(bondDistanceBond.atomSecond.transform);
-                gameObject.transform.SetParent(bondDistanceBond.atomFirst);
+                gameObject.transform.localScale = new Vector3(1f, 1f, bondDistanceBond.Distance / 2);
+                gameObject.transform.position = bondDistanceBond.AtomFirst.transform.position;
+                gameObject.transform.LookAt(bondDistanceBond.AtomSecond.transform);
+                gameObject.transform.SetParent(bondDistanceBond.AtomFirst);
 	        }
 	    }
 

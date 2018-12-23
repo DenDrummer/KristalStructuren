@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,12 +9,12 @@ public class StartSceneManager : MonoBehaviour
     private Light lt;
     private float lightStep = 1f;
 
-	void Start ()
-	{
-	    timer = 1f;
-		lt = GetComponentInChildren<Light>();
-	}
-	
+    void Start()
+    {
+        timer = 1f;
+        lt = GetComponentInChildren<Light>();
+    }
+
     void Update()
     {
         timer += Time.deltaTime;

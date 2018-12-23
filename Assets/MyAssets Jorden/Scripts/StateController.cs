@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using UnityEngine;
 
 public class StateController : MonoBehaviour
@@ -25,5 +26,10 @@ public class StateController : MonoBehaviour
             default:
                 throw new Exception(state + " is not a valid state.");
         }
+    }
+
+    public void ChangeState(State state)
+    {
+        UserStats.State = state;
     }
 }

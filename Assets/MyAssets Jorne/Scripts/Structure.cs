@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,13 +28,13 @@ public class Structure{
 
    
     
-    public void drawAlongXAxis(float zOffset,float yOffset) {
+    public void DrawAlongXAxis(float zOffset,float yOffset) {
        int count = 0;
         while (count < SIZE)
         {
           foreach (Atom a in atoms)
             {
-                Vector3 positie= new Vector3((float)a.x + (maxX * count), (float)a.y+yOffset, (float)a.z+zOffset);
+                Vector3 positie= new Vector3((float)a.X + (maxX * count), (float)a.Y+yOffset, (float)a.Z+zOffset);
                 if (!Physics.CheckSphere(positie,(float)0.001))
                 {
                     //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -43,7 +43,7 @@ public class Structure{
                     
                     GameObject gameObject=GameObject.Instantiate(atom.gameObject,positie,Quaternion.identity);
                     Renderer renderer = gameObject.GetComponent<Renderer>();
-                    renderer.material.color = new Color(a.element.color.r/255, a.element.color.g/255, a.element.color.b/255);
+                    renderer.material.color = new Color(a.Element.Color.r/255, a.Element.Color.g/255, a.Element.Color.b/255);
 
                 }
             }
@@ -51,20 +51,20 @@ public class Structure{
         }
     }
     
-   public void drawHorizontalLayer(float yOffset) {
+   public void DrawHorizontalLayer(float yOffset) {
        int zCount = 0;
        while (zCount < SIZE)
        {
-           drawAlongXAxis(zCount * maxZ,yOffset);
+           DrawAlongXAxis(zCount * maxZ,yOffset);
            zCount++; 
        }
 
    }
 
-   public void drawEveryLayer() {
+   public void DrawEveryLayer() {
        int yCount = 0;
        while (yCount < SIZE) {
-           drawHorizontalLayer(yCount*maxY);
+           DrawHorizontalLayer(yCount*maxY);
            yCount++;
        }
    }

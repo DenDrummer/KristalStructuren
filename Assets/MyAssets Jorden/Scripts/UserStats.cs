@@ -1,4 +1,5 @@
-﻿public static class UserStats
+﻿
+public static class UserStats
 {
     public static State State { get; set; }
 

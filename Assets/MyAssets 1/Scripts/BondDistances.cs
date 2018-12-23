@@ -1,30 +1,27 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class BondDistances
 {
-    public float distance { get; private set; }
-    public Transform atomFirst { get; private set; }
-    public Transform atomSecond { get; private set; }
+    public float Distance { get; private set; }
+    public Transform AtomFirst { get; private set; }
+    public Transform AtomSecond { get; private set; }
 
     public BondDistances(float distance, Transform atomFirst, Transform atomSecond)
     {
-        
-        this.atomFirst = atomFirst;
-        this.atomSecond = atomSecond;
-        this.distance = distance;
+        AtomFirst = atomFirst;
+        AtomSecond = atomSecond;
+        Distance = distance;
     }
 
     
     public int CompareTo(object obj)
     {
-        if (this.distance < ((BondDistances)obj).distance)
+        if (Distance < ((BondDistances)obj).Distance)
         {
             return -1;
         }
-        if (this.distance > ((BondDistances)obj).distance)
+        if (Distance > ((BondDistances)obj).Distance)
         {
             return 1;
         }

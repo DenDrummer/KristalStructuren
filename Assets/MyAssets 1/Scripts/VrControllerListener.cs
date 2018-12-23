@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
-using UnityEngine.UI;
 
 public class VrControllerListener : MonoBehaviour {
     KeyCode BluetoothReturn = (KeyCode)10;

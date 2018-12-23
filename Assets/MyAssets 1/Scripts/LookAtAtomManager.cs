@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿
 using UnityEngine;
-using UnityEngine.UI;
 
 public class LookAtAtomManager : MonoBehaviour
 {
-
     private Renderer myRenderer;
     private Color color;
     private Color gazedAtColor;
@@ -21,7 +16,6 @@ public class LookAtAtomManager : MonoBehaviour
         gazedAtColor = color * 1.5f;
         gazedAtColor.a = 1;
         activateMenu = true;
-
     }
 
     void Update()
