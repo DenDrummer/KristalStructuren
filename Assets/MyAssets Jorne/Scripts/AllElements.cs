@@ -31,6 +31,8 @@ public class AllElements
 
     public Element GetElement(string element)
     {
+        // doet de volgende lijn niet exact hetzelfde maar performanter?
+        //return MendeljevElementen.Find(e => e.Abbreviation.Equals(element));
         foreach (Element e in MendeljevElementen)
         {
             if (element.Equals(e.Abbreviation))
