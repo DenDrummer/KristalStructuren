@@ -11,6 +11,7 @@ public class BondManager : MonoBehaviour
     private GameObject[] atoms;
     [SerializeField] private Transform cylinderRef;
     private GameObject[] atomsParent;
+    private Color[] colors;
 
     [SerializeField] private int AmountOfClosestBonds = 1;
     // Use this for initialization
@@ -18,6 +19,11 @@ public class BondManager : MonoBehaviour
     {
         //atoms = atomsParent.GetComponentsInChildren<Transform>();
 	    atoms = GameObject.FindGameObjectsWithTag("atom");
+        colors = new Color[4];
+        colors[0] = Color.blue;
+        colors[1] = Color.yellow;
+        colors[2] = Color.black;
+        colors[3] = Color.red;
 	    MakeBonds();
 	}
 
@@ -43,9 +49,10 @@ public class BondManager : MonoBehaviour
 	                atomFirst = atom;
 	                atomSecond = atom2;
 	            }*/
-	            distances.Add((float)Math.Round(dis * 100f)/100f);
+	            distances.Add((float)Math.Round(dis * 10f)/10f);
 	        }
 	    }
+        //maybe use array1.Distinct.ToArray()
 	    distancesArray = distances.ToArray();
         Array.Sort(distancesArray);
         for (int i = 0; i < AmountOfClosestBonds; i++)
@@ -58,6 +65,8 @@ public class BondManager : MonoBehaviour
                 gameObject.transform.position = bondDistanceBond.atomFirst.transform.position;
                 gameObject.transform.LookAt(bondDistanceBond.atomSecond.transform);
                 gameObject.transform.SetParent(bondDistanceBond.atomFirst);
+	            gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = colors[i];
+
 	        }
 	    }
 

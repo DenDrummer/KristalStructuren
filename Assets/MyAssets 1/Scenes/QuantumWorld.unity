@@ -637,8 +637,8 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 470083009}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.04, y: 6, z: 1.98}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.48, y: 4.61, z: -1.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 203780060}
@@ -646,7 +646,7 @@ Transform:
   - {fileID: 512551558}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &470083014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,7 +1101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cylinderRef: {fileID: 4486845534790028, guid: 4d288e2780e7cfc4c9c91ad6ebf937d4,
     type: 2}
-  AmountOfClosestBonds: 1
+  AmountOfClosestBonds: 2
 --- !u!4 &1687993239
 Transform:
   m_ObjectHideFlags: 0
