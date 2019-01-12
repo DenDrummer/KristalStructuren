@@ -30,6 +30,7 @@ public class cifMenu : MonoBehaviour {
         if (files.Count == 0)
         {
             list.SetActive(false);
+            next.SetActive(false);
             noCifText.SetActive(true);
             noCifText.GetComponent<Text>().text = "No cif files were found. Add them in " + path;
         }
