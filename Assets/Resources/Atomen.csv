@@ -1,4 +1,4 @@
-Number,Symbol,Name,Mass,Electronegativity,Density,Melt,Boil,Radius,Discovered,Oxidations,Color,Category
+Number,Symbol,Name,Mass,Electronegativity,Density,Melt,Boil,VDW_Radius,Discovered,Oxidations,Color,Category
 1,H,Hydrogen,1.0008,2.2,0.09,-259,-252,120,1766,-1;0;+1,ffffff,reactive nonmetals
 2,He,Helium,4.003,0,0.18,-272,-268,140,1895,0,d9ffff,noble gasses
 3,Li,Lithium,6.941,0.98,535,180,1330,182,1817,0;+1,cc80ff,alkali metals
@@ -55,6 +55,21 @@ Number,Symbol,Name,Mass,Electronegativity,Density,Melt,Boil,Radius,Discovered,Ox
 54,Xe,Xenon,131.290,2.6,5.9,-111,-108,216,1898,0;+1;+2;+4;+6;+8,429eb0,noble gasses
 55,Cs,Caesium,132.905,0.79,1879,28,671,343,1860,-1;0;+1,57178f,alkali metals
 56,Ba,Barium,137.327,0.89,3510,727,1640,268,1808,0;+2,00c900,alkaline earth metals
+57,La,Lanthanum,138.906,1.1,6146,920,3464,,1839,0;+2;+3,70d4ff,lanthanide;transition metals
+58,Ce,Cerium,140.115,1.12,6689,795,3443,,1803,0;+2;+3;+4,ffffc7,lanthanide
+59,Pr,Praseodymium,140.908,1.13,6640,935,3130,,1885,0;+2;+3;+4,d9ffc7,lanthanide
+60,Nd,Neodymium,144.240,1.14,7010,1024,3074,,1885,0;+2;+3;+4,c7ffc7,lanthanide
+61,Pm,Promethium,144.913,1.13,7264,1042,3000,,1945,0;+2;+3,a3ffc7,lanthanide
+62,Sm,Samarium,150.360,1.17,7353,1072,1900,,1879,0;+2;+3,8fffc7,lanthanide
+63,Eu,Europium,151.966,1.2,5244,826,1529,,1901,0;+2;+3,61ffc7,lanthanide
+64,Gd,Gadolinium,157.250,1.2,7901,1312,3000,,1880,0;+1;+2;+3,45ffc7,lanthanide
+65,Tb,Terbium,158.925,1.2,8219,1356,3123,,1843,0;+1;+2;+3;+4,30ffc7,lanthanide
+66,Dy,Dysprosium,162.500,1.22,8551,1407,2567,,1886,0;+2;+3;+4,1fffc7,lanthanide
+67,Ho,Holmium,164.930,1.23,8795,1461,2600,,1878,0;+2;+3,00ff9c,lanthanide
+68,Er,Erbium,167.260,1.24,9066,1529,2868,,1843,0;+2;+3,00e675,lanthanide
+69,Tm,Thulium,168.934,1.25,9321,1545,1730,,1879,0;+2;+3,00d452,lanthanide
+70,Yb,Ytterbium,173.040,1.11,6570,824,1196,,1878,0;+2;+3,00bf38,lanthanide
+71,Lu,Lutetium,174.967,1.27,9841,1652,3402,,1907,0;+3,00ab24,lanthanide;transition metals
 72,Hf,Hafnium,178.490,1.3,13310,2233,4603,,1923,0;+2;+3;+4,4dc2ff,transition metals
 73,Ta,Tantalum,180.948,1.5,16650,3017,5458,,1802,-1;0;+2;+3;+4;+5,4da6ff,transition metals
 74,W,Tungsten;Wolfram,183.850,2.36,19250,3422,5930,,1783,,-2;-1;0;+1;+2;+3;+4;+5;+6,2194d6,transition metals
@@ -70,3 +85,26 @@ Number,Symbol,Name,Mass,Electronegativity,Density,Melt,Boil,Radius,Discovered,Ox
 84,Po,Polonium,208.982,2,9196,254,962,197,1898,-2;0;+2;+4;+5;+6,ab5c00,post-transition metals
 85,At,Astatine,209.987,2.2,,302,337,202,1940,-1;0;+1;+3;+5;+7,754f45,metalloids;nonmetals;metals
 86,Rn,Radon,222.018,2.2,9.73,-71,-62,220,1902,0;+2;+6,428296,noble gasses
+87,Fr,Francium,223.020,0.7,,27,677,348,1939,0;+1,420066,alkali metals
+88,Ra,Radium,226.025,0.9,5000,700,1737,283,1898,0;+2,007d00,alkaline earth metals
+89,Ac,Actinium,227.028,1.1,10070,1050,3198,,1899,0;+2;+3,70abfa,actinides;transition metals
+90,Th,Thorium,232.038,1.3,11724,1842,4788,,1815,0;+1;+2;+3;+4,00baff,actinides
+91,Pa,Protactinium,231.036,1.5,15370,1568,4027,,1918,0;+2;+3;+4;+5,00a1ff,actinides
+92,U,Uranium,238.029,1.38,19050,1132,4131,186,1789,0;+2;+3;+4;+5;+6,008fff,actinides
+93,Np,Neptunium,237.048,1.36,20450,644,4000,,1940,0;+3;+4;+5;+6;+7,0080ff,actinides
+94,Pu,Plutonium,244.064,1.28,19816,639,3228,,1940,0;+3;+4;+5;+6;+7;+8,006bff,actinides
+95,Am,Americium,243.061,1.3,,1176,2607,,1944,0;+2;+3;+4;+5;+6;+7,545cf2,actinides
+96,Cm,Curium,247.070,1.3,13510,1340,3110,,1944,0;+2;+3;+4;+6;+8,785ce3,actinides
+97,Bk,Berkelium,247.070,1.3,14780,1050,,,1949,0;+2;+3;+4,8a4fe3,actinides
+98,Cf,Californium,251.080,1.3,15100,900,,,1950,0;+2;+3;+4,a136d4,actinides
+99,Es,Einsteinium,254.000,1.3,,860,,,1952,0;+2;+3;+4,b31fd4,actinides
+100,Fm,Fermium,257.095,1.3,,1527,,,1952,0;+2;+3,b31fba,actinides
+101,Md,Mendelevium,258.100,1.3,,827,,,1955,0;+2;+3,b30da6,actinides
+102,No,Nobelium,259.101,1.3,,827,,,1957,0;+2;+3,bd0d87,actinides
+103,Lr,Lawrencium,262.000,1.3,,1627,,,1961,0;+3,c70066,actinides;transition metals
+104,Rf,Rutherfordium,261.000,,,,,,1964,0;+4,cc0059,transition metals
+105,Db,Dubnium,262.000,,,,,,1967,0;+5,d1004f,transition metals
+106,Sg,Seaborgium,266.000,,,,,,1974,0;+6,d90045,transition metals
+107,Bh,Bohrium,264.000,,,,,,1981,0;+7,e00038,transition metals
+108,Hs,Hassium,269.000,,,,,,1984,0;+8,e6002e,transition metals
+112,Cn,Copernicium,277.000,,,,,,1996,0,,post-transition metals;transition metals

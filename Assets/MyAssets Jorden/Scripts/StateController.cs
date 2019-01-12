@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Threading;
 using UnityEngine;
 
 public class StateController : MonoBehaviour
@@ -9,23 +10,30 @@ public class StateController : MonoBehaviour
         switch (state)
         {
             case "Default":
-                UserStats.State = State.Default;
+                ChangeState(State.Default);
                 break;
             case "FreeMove":
-                UserStats.State = State.FreeMove;
+                Thread th = new Thread(new ThreadStart(DelayedFreeMove));
+                th.Start();
                 break;
             case "MeasureDistance":
-                UserStats.State = State.MeasureDistance;
+                ChangeState(State.MeasureDistance);
                 break;
             case "SelectAtom":
-                UserStats.State = State.SelectAtom;
+                ChangeState(State.SelectAtom);
                 break;
             case "Teleport":
-                UserStats.State = State.Teleport;
+                ChangeState(State.Teleport);
                 break;
             default:
                 throw new Exception(state + " is not a valid state.");
         }
+    }
+
+    private void DelayedFreeMove()
+    {
+        Thread.Sleep(100);
+        ChangeState(State.FreeMove);
     }
 
     public void ChangeState(State state)
