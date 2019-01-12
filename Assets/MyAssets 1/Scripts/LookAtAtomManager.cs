@@ -47,6 +47,38 @@ public class LookAtAtomManager : MonoBehaviour {
 
     public void ClickAtom()
     {
+        switch (UserStats.State)
+        {
+            case State.Default:
+                SelectAtom();
+                break;
+            case State.MeasureDistance:
+                MeasureDistance();
+                break;
+            case State.Teleport:
+                Teleport();
+                break;
+            default:
+                //Do nothing
+                break;
+        }
+    }
+
+    private void Teleport()
+    {
+        Teleport tp = gameObject.GetComponent<Teleport>();
+        tp.TeleportToAtom();
+    }
+
+    private void MeasureDistance()
+    {
+        UserStats.SecondLocation = transform;
+        throw new NotImplementedException();
+    }
+
+    private void SelectAtom()
+    {
+        //TODO: Ask Sam about why atomGuis is stored if it's reset everytime it's used anyways
         atomGuis = GameObject.FindGameObjectsWithTag("atomgui");
         if (atomGuis.Length > 0)
         {
@@ -57,6 +89,6 @@ public class LookAtAtomManager : MonoBehaviour {
         }
         //bool activeSelf = !transform.GetChild(0).gameObject.activeSelf;
         transform.GetChild(0).gameObject.SetActive(activateMenu);
-        activateMenu = activateMenu ? false : true;
+        activateMenu = !activateMenu;
     }
 }
