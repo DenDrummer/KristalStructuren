@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
     public Transform atom;
     List<Atom> atoms=new List<Atom>();
+    List<Atom> atoms2 = new List<Atom>();
     Structure structure1;
    
 
@@ -21,7 +22,7 @@ public class GameController : MonoBehaviour {
         atoms.Add(new Atom(3.0149999 / 2, 3.0149999 / 2, 3.0149999 / 2, "Ti"));
         atoms.Add(new Atom(3.0149999, 3.0149999, 3.0149999, "Ni"));
         structure1 = new Structure(atoms,(float) 3.0149999,atom);
-        structure1.drawEveryLayer();
+        //structure1.drawEveryLayer();
         
     }
 	
@@ -29,20 +30,4 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		
 	}
-    /*
-    void setElementen() {
-        using (var reader = new StreamReader(@"D:\School\VR\VRKristalStructuur\Assets\MyAssets\Data\data.csv")) {
-            //Eerste lijn met benamingen skippen
-            reader.ReadLine();
-            while (!reader.EndOfStream)
-            {
-                
-                var line = reader.ReadLine();
-                var values = line.Split(',');
-                Debug.Log(values[1]);
-               
-
-            }
-        }
-    }*/
 }
