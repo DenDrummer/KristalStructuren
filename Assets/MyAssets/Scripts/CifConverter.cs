@@ -19,13 +19,13 @@ public class CifConverter : MonoBehaviour
     public Transform atom;
     private void Start()
     {
-        string path = @"D:\Downloads\testje.cif";
+        string path = @"D:\Downloads\Austenite.cif";
         Structure returnStructuur;
         Convert(path);
-        Debug.Log(a);
+        /*Debug.Log(a);
         Debug.Log(b);
         Debug.Log(c);
-        /*Debug.Log(alpha);
+        Debug.Log(alpha);
         Debug.Log(beta);
         Debug.Log(gamma);
         Debug.Log("stuff");*/
@@ -37,6 +37,8 @@ public class CifConverter : MonoBehaviour
         List<string> Xwaarden=null;
         List<string> Ywaarden=null;
         List<string> Zwaarden=null;
+        
+        //Instellen van X,Y,Z en elementen
         foreach (KeyValuePair<string, List<string>> entry in atoms) {
             
             if (entry.Key.Equals("_atom_site_fract_x")) {
@@ -63,12 +65,35 @@ public class CifConverter : MonoBehaviour
             }
 
         }
-        for (int i = 0; i < Xwaarden.Count; i++) {
+        //instellen symmetry
+        foreach (KeyValuePair<string, List<string>> entry in symmetry)
+        {
+            Debug.Log(entry.Key);
+            foreach (string waarde in entry.Value) {
+                Debug.Log(waarde);
+            }
+        }
+            //Initiële Waarden instellen
+            for (int i = 0; i < Xwaarden.Count; i++) {
             Atom atoom = new Atom(double.Parse(Xwaarden[i])*a, double.Parse(Ywaarden[i])*b, double.Parse(Zwaarden[i])*c,elements[i].abbreviation);
+            int symmX;
+            int symmY;
+            int symmZ;
+
+            foreach (KeyValuePair<string, List<string>> entry in symmetry)
+            {
+                Debug.Log(entry.Key);
+                foreach (string waarde in entry.Value)
+                {
+                    string[] StringCoords=waarde.Split(',');
+                    Debug.Log(waarde);
+
+                }
+            }
             atomen.Add(atoom);
         }
         //Hoekpunten van atomen kopiëren
-        for (int i = 0; i < atomen.Count; i++) {
+        /*for (int i = 0; i < atomen.Count; i++) {
             if (atomen[i].x == 0) {
                 atomen.Add(new Atom(a, atomen[i].y, atomen[i].z,atomen[i].element.abbreviation));
             }
@@ -80,7 +105,7 @@ public class CifConverter : MonoBehaviour
             {
                 atomen.Add(new Atom(atomen[i].x, atomen[i].y, c, atomen[i].element.abbreviation));
             }
-        }
+        }*/
         returnStructuur = new Structure(atomen, a, atom);
         returnStructuur.drawEveryLayer();
 
@@ -159,7 +184,7 @@ public class CifConverter : MonoBehaviour
                             line = sr.ReadLine();
                         }
                     }
-                    else if (line.StartsWith("_symmetry_equiv_pos"))
+                    else if (line.StartsWith("_symmetry_equiv_pos") || line.StartsWith("_space_group_symop_operation"))
                     {
                         while (line.StartsWith("_"))
                         {

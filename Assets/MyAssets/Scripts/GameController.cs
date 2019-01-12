@@ -6,7 +6,6 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
     public Transform atom;
     List<Atom> atoms=new List<Atom>();
-    List<Atom> atoms2 = new List<Atom>();
     Structure structure1;
    
 
