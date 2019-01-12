@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
-    [SerializeField]private Transform atom;
+    [SerializeField]
+    private Transform atom;
     List<Atom> atoms=new List<Atom>();
+    List<Atom> atoms2 = new List<Atom>();
     Structure structure1;
-    [SerializeField] private GameObject bondController;
-   
+    [SerializeField]
+    private GameObject bondController;
+
 
     // Use this for initialization
     void Start() {
@@ -30,20 +33,4 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		
 	}
-    /*
-    void setElementen() {
-        using (var reader = new StreamReader(@"D:\School\VR\VRKristalStructuur\Assets\MyAssets\Data\data.csv")) {
-            //Eerste lijn met benamingen skippen
-            reader.ReadLine();
-            while (!reader.EndOfStream)
-            {
-                
-                var line = reader.ReadLine();
-                var values = line.Split(',');
-                Debug.Log(values[1]);
-               
-
-            }
-        }
-    }*/
 }
