@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
+[Obsolete("MeasurePanelWatcher is deprecated, please use Event Triggers to call methods from StateController")]
 public class MeasurePanelWatcher : MonoBehaviour
 {
     [SerializeField]
@@ -7,14 +9,14 @@ public class MeasurePanelWatcher : MonoBehaviour
 
     void OnEnable()
     {
-        stateController.ChangeState(State.MeasureDistance);
+        stateController.ChangeState("MeasureDistance");
     }
 
     void OnDisable()
     {
         if (UserStats.State.Equals(State.MeasureDistance))
         {
-            stateController.ChangeState(State.Default);
+            stateController.ChangeState("Default");
         }
     }
 }

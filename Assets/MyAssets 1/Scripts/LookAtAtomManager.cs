@@ -70,7 +70,7 @@ public class LookAtAtomManager : MonoBehaviour {
     {
         UserStats.SecondLocation = transform;
         //TODO: update measured distance
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     private void SelectAtom()
