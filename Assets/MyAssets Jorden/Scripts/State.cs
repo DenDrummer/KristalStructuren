@@ -1,5 +1,4 @@
-﻿
-public enum State
+﻿public enum State
 {
     Default,
     FreeMove,

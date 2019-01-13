@@ -12,9 +12,12 @@ public class StateController : MonoBehaviour
 
     void Start()
     {
-        ExitStateButtons = GameObject.FindGameObjectsWithTag("exitStateButton").ToList();
-        EnterStateButtons = GameObject.FindGameObjectsWithTag("enterStateButton").ToList();
-        SetStateButtonsToDefault();
+        GameController gc = GameObject.Find("GameController").GetComponent<GameController>();
+        ExitStateButtons = gc.GetExitButtons();
+        EnterStateButtons = gc.GetEnterButtons();
+        //ExitStateButtons = GameObject.FindGameObjectsWithTag("exitStateButton").ToList();
+        //EnterStateButtons = GameObject.FindGameObjectsWithTag("enterStateButton").ToList();
+        //SetStateButtonsToDefault();
         FreeMoveCountDown = -1;
     }
 
@@ -64,7 +67,10 @@ public class StateController : MonoBehaviour
 
     private void ExitTeleport()
     {
-        UserStats.DisabledObjects.ForEach(go => go.SetActive(true));
+        if (UserStats.DisabledObjects != null)
+        {
+            UserStats.DisabledObjects.ForEach(go => go.SetActive(true));
+        }
     }
 
     private static void ExitMeasureDistance()
