@@ -8,11 +8,12 @@ public class MenuAtomManager : MonoBehaviour
 
     void Start()
     {
-        activated = true;
+        activated = false;
     }
 
     public void ButtonPress()
     {
+        activated = !activated;
         foreach (Transform child in transform)
         {
             foreach (Transform innerChild in child)
@@ -20,7 +21,5 @@ public class MenuAtomManager : MonoBehaviour
                 innerChild.gameObject.SetActive(activated);
             }
         }
-        activated = activated ? false : true;
     }
-
 }
