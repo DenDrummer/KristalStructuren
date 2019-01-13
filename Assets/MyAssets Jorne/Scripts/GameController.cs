@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuantumController : MonoBehaviour {
+public class GameController : MonoBehaviour {
     [SerializeField]
     private Transform atom;
     private List<Atom> atoms=new List<Atom>();
@@ -42,7 +42,7 @@ public class QuantumController : MonoBehaviour {
     }
     //Draws from .cif file
     void DrawFromCifConverter() {
-        structure = cifConverter.getStructure("");
+        structure = cifConverter.getStructure("D:/Downloads/NaCl at 32kbar.cif");
         quantumInstancer = new QuantumInstancer(structure,3);
         quantumInstancer.drawEveryLayer();
     }
