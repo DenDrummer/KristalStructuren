@@ -4,9 +4,9 @@ using System.IO;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-public class CifConverter : MonoBehaviour
+//Converts .cif files to Structures 
+public class CifConverter
 {
-
     private float a;
     private float b;
     private float c;
@@ -17,41 +17,36 @@ public class CifConverter : MonoBehaviour
     private Dictionary<string, List<string>> symmetry = new Dictionary<string, List<string>>();
 
     public Transform atom;
-    private void Start()
+
+    public Structure getStructure(string pathName)
     {
-        string path = @"D:\Downloads\testje.cif";
+        string path = @"D:\Downloads\Austenite.cif";
         Structure returnStructuur;
         Convert(path);
-        Debug.Log(a);
-        Debug.Log(b);
-        Debug.Log(c);
-        /*Debug.Log(alpha);
-        Debug.Log(beta);
-        Debug.Log(gamma);
-        Debug.Log("stuff");*/
-        
-        
         List<Atom> atomen = new List<Atom>();
-
         List<Element> elements = new List<Element>();
-        List<string> Xwaarden=null;
-        List<string> Ywaarden=null;
-        List<string> Zwaarden=null;
-        foreach (KeyValuePair<string, List<string>> entry in atoms) {
-            
-            if (entry.Key.Equals("_atom_site_fract_x")) {
-                Xwaarden = entry.Value;
+        List<string> XValues = null;
+        List<string> YValues = null;
+        List<string> ZValues = null;
+
+        //Initializing X,Y,Z and Elements
+        foreach (KeyValuePair<string, List<string>> entry in atoms)
+        {
+
+            if (entry.Key.Equals("_atom_site_fract_x"))
+            {
+                XValues = entry.Value;
             }
 
 
             if (entry.Key.Equals("_atom_site_fract_y"))
             {
-                Ywaarden = entry.Value;
+                YValues = entry.Value;
             }
 
             if (entry.Key.Equals("_atom_site_fract_z"))
             {
-                Zwaarden = entry.Value;
+                ZValues = entry.Value;
             }
 
             if (entry.Key.Equals("_atom_site_label"))
@@ -63,11 +58,16 @@ public class CifConverter : MonoBehaviour
             }
 
         }
-        for (int i = 0; i < Xwaarden.Count; i++) {
-            Atom atoom = new Atom(double.Parse(Xwaarden[i])*a, double.Parse(Ywaarden[i])*b, double.Parse(Zwaarden[i])*c,elements[i].abbreviation);
+        
+        //Setting initial Atoms
+        for (int i = 0; i < XValues.Count; i++)
+        {
+            Atom atoom = new Atom(double.Parse(XValues[i]) * a, double.Parse(YValues[i]) * b, double.Parse(ZValues[i]) * c, elements[i].abbreviation);
+           
             atomen.Add(atoom);
         }
-        //Hoekpunten van atomen kopiëren
+        //No use of symmetry so instead there is this,
+        //Copying cornerpoints of atoms, for cubic structures
         for (int i = 0; i < atomen.Count; i++) {
             if (atomen[i].x == 0) {
                 atomen.Add(new Atom(a, atomen[i].y, atomen[i].z,atomen[i].element.abbreviation));
@@ -82,58 +82,25 @@ public class CifConverter : MonoBehaviour
             }
         }
         returnStructuur = new Structure(atomen, a, atom);
-        returnStructuur.drawEveryLayer();
+       
 
-        /*foreach (KeyValuePair<string, List<string>> entry in atoms)
-        {
-            
-            if (entry.Key.Equals("_atom_site_label")) {
-                foreach (string item in entry.Value) {
-                    //Debug.Log(item.Substring(0,2));
-                    elements.Add(AllElements.getElement(item.Substring(0, 2)));
-                }
-            }
-
-            if (entry.Key.Equals("_atom_site_fract_x"))
-            {
-                foreach (string item in entry.Value)
-                {
-                    Debug.Log(item);
-                }
-            }
-
-            if (entry.Key.Equals("_atom_site_fract_y"))
-            {
-                foreach (string item in entry.Value)
-                {
-                    
-                }
-            }
-
-            if (entry.Key.Equals("_atom_site_fract_z"))
-            {
-                foreach (string item in entry.Value)
-                {
-                   
-                }
-            }
-        }*/
+        return returnStructuur;
     }
 
-    public void Convert(string path)
+    //Converts cif file to Symmetry and Atoms Dictioniaries
+    private void Convert(string path)
     {
         atoms.Clear();
         symmetry.Clear();
         RegexOptions options = RegexOptions.None;
         Regex regex = new Regex("[ ]{2,}", options);
-        
+
 
         using (StreamReader sr = File.OpenText(path))
         {
             string line = "";
             while (sr.Peek() >= 0)
             {
-               // Debug.Log(line);
                 if (line.Contains("loop_"))
                 {
                     line = sr.ReadLine();
@@ -141,14 +108,11 @@ public class CifConverter : MonoBehaviour
                     {
                         while (line.StartsWith("_"))
                         {
-                            //Debug.Log(line);
                             atoms.Add(line.Trim(), new List<string>());
-                            //Debug.Log("atom key added");
                             line = sr.ReadLine();
                         }
                         while (line != null && (!line.Trim().Equals("") && !line.Contains("loop_") && !line.Contains("#End of data") && !line.StartsWith("_")))
                         {
-                            //Debug.Log(line);
                             string[] values = line.Split(" ".ToCharArray(), atoms.Count);
                             int i = 0;
                             foreach (var keyValuePair in atoms)
@@ -159,18 +123,15 @@ public class CifConverter : MonoBehaviour
                             line = sr.ReadLine();
                         }
                     }
-                    else if (line.StartsWith("_symmetry_equiv_pos"))
+                    else if (line.StartsWith("_symmetry_equiv_pos") || line.StartsWith("_space_group_symop_operation"))
                     {
                         while (line.StartsWith("_"))
                         {
-                            //Debug.Log(line);
                             symmetry.Add(line.Trim(), new List<string>());
-                            //Debug.Log("symmetry key added");
                             line = sr.ReadLine();
                         }
                         while (line != null && (!line.Trim().Equals("") && !line.Contains("loop_") && !line.Contains("#End of data") && !line.StartsWith("_")))
                         {
-                            //Debug.Log(line);
                             string[] values = line.Split(" ".ToCharArray(), symmetry.Count);
                             int i = 0;
                             foreach (var keyValuePair in symmetry)

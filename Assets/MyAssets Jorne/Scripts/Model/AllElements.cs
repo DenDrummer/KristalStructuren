@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-
+//Static class with information on all elements
 public static class AllElements{
 
     static List<Element> MendeljevElementen;
@@ -12,7 +12,7 @@ public static class AllElements{
         setElementenHard();
     }
 
- 
+    //Reads from csv file and prints them to add hardcoded
     static void setElementen()
     {
         string hardCoded="";
@@ -32,7 +32,7 @@ public static class AllElements{
         }
         Debug.Log(hardCoded);
     }
-
+    //Reads from hardcoded elements
     static void setElementenHard() {
         MendeljevElementen.Add(new Element("1", " H ", " Hydrogen", " 1.00794(4)", "FFFFFF", "120", "37"));
         MendeljevElementen.Add(new Element("2", " He ", " Helium", " 4.002602(2)", "D9FFFF", "140", "32"));
