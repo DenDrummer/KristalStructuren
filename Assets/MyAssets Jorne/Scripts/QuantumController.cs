@@ -10,13 +10,14 @@ public class QuantumController : MonoBehaviour {
     [SerializeField]
     private GameObject bondController;
     private QuantumInstancer quantumInstancer;
-    private CifConverter cifConverter = new CifConverter();
+    private CifConverter cifConverter;
 
 
 
     void Start() {
-        //DrawFromCifConverter();
-        DrawFromHardCoded();
+        cifConverter = new CifConverter(atom);
+        DrawFromCifConverter();
+        //DrawFromHardCoded();
         bondController.GetComponent<BondManager>().enabled = true;
     }
 	
@@ -41,7 +42,7 @@ public class QuantumController : MonoBehaviour {
     }
     //Draws from .cif file
     void DrawFromCifConverter() {
-        structure = cifConverter.getStructure("TO IMPLEMENT");
+        structure = cifConverter.getStructure("");
         quantumInstancer = new QuantumInstancer(structure,3);
         quantumInstancer.drawEveryLayer();
     }

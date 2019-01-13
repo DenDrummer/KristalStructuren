@@ -17,9 +17,13 @@ public class CifConverter
     private Dictionary<string, List<string>> symmetry = new Dictionary<string, List<string>>();
 
     public Transform atom;
+    public CifConverter(Transform atom) {
+        this.atom = atom;
+    }
 
     public Structure getStructure(string pathName)
     {
+        
         string path = pathName;
         Structure returnStructuur;
         Convert(path);
@@ -63,7 +67,7 @@ public class CifConverter
         for (int i = 0; i < XValues.Count; i++)
         {
             Atom atoom = new Atom(double.Parse(XValues[i]) * a, double.Parse(YValues[i]) * b, double.Parse(ZValues[i]) * c, elements[i].abbreviation);
-           
+            Debug.Log(atoom.element.abbreviation);
             atomen.Add(atoom);
         }
         //No use of symmetry so instead there is this,
@@ -95,7 +99,7 @@ public class CifConverter
         RegexOptions options = RegexOptions.None;
         Regex regex = new Regex("[ ]{2,}", options);
 
-
+        
         using (StreamReader sr = File.OpenText(path))
         {
             string line = "";

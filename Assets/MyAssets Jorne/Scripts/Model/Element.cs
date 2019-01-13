@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Element{
-    private int atomicNumber { get; set; }
-    private string name { get; set; }
-
+    public int atomicNumber { get; set; }
+    public string name { get; set; }
     public string abbreviation { get; set; }
     public float mass { get; set; }
     public float atomicRadius { get; set; }
@@ -14,9 +13,8 @@ public class Element{
 
     public Element(string atomicNumber,string abbreviation,string name,string mass,string color,string waalsRadius,string atomicRadius) {
         this.atomicNumber = Int32.Parse(atomicNumber);
-        this.abbreviation = abbreviation.Replace(" ",string.Empty);
+        this.abbreviation = abbreviation;
         this.name = name;
-        this.mass = float.Parse(mass);
         this.color =new Color(int.Parse(color.Substring(0,2), System.Globalization.NumberStyles.AllowHexSpecifier), int.Parse(color.Substring(2, 2), System.Globalization.NumberStyles.AllowHexSpecifier), int.Parse(color.Substring(4, 2), System.Globalization.NumberStyles.AllowHexSpecifier));
         if (atomicRadius.Equals("")) {
             this.atomicRadius = 100;
