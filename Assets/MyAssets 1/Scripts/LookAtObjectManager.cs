@@ -72,8 +72,6 @@ public class LookAtObjectManager : MonoBehaviour {
     private void MeasureDistance()
     {
         UserStats.SecondLocation = transform;
-        //TODO: update measured distance
-        throw new NotImplementedException();
     }
 
     public void SelectAtom()

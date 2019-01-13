@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Element{
-    private int atomicNumber { get; set; }
-    private string name { get; set; }
+    public int atomicNumber { get; set; }
+    public string name { get; set; }
     //Key of the element
     public string abbreviation { get; set; }
-    private float mass { get; set; }
+    public string mass { get; set; }
     public float atomicRadius { get; set; }
     public Color color {get; set; }
 
@@ -16,7 +16,7 @@ public class Element{
         this.atomicNumber = Int32.Parse(atomicNumber);
         this.abbreviation = abbreviation.Replace(" ",string.Empty);
         this.name = name;
-        //this.mass = float.Parse(mass);
+        this.mass = mass;
         //this.waalsRadius = float.Parse(waalsRadius);
         this.color =new Color(int.Parse(color.Substring(0,2), System.Globalization.NumberStyles.AllowHexSpecifier), int.Parse(color.Substring(2, 2), System.Globalization.NumberStyles.AllowHexSpecifier), int.Parse(color.Substring(4, 2), System.Globalization.NumberStyles.AllowHexSpecifier));
         if (atomicRadius.Equals("")) {

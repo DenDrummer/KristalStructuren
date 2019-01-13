@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour {
     Structure structure1;
     [SerializeField]
     private GameObject bondController;
+    [SerializeField]
+    private GameObject InformationController;
 
     [SerializeField] private Text debugGui;
 
@@ -35,6 +37,7 @@ public class GameController : MonoBehaviour {
         structure1 = new Structure(atoms,(float) 3.0149999,atom);
         structure1.drawEveryLayer();
         bondController.GetComponent<BondManager>().enabled = true;
+        InformationController.GetComponent<InformationGuiManager>().enabled = true;
     }
 	
 	// Update is called once per frame

@@ -17,8 +17,8 @@ public class StateController : MonoBehaviour
         EnterStateButtons = gc.GetEnterButtons();
         //ExitStateButtons = GameObject.FindGameObjectsWithTag("exitStateButton").ToList();
         //EnterStateButtons = GameObject.FindGameObjectsWithTag("enterStateButton").ToList();
-        Debug.Log("EnterStateButtons  " + EnterStateButtons.Count);
-        Debug.Log("ExitStateButtons  " + ExitStateButtons.Count);
+        //Debug.Log("EnterStateButtons  " + EnterStateButtons.Count);
+        //Debug.Log("ExitStateButtons  " + ExitStateButtons.Count);
         SetStateButtonsToDefault();
         FreeMoveCountDown = -1;
     }
@@ -91,15 +91,13 @@ public class StateController : MonoBehaviour
     {
         //get the transform of the root atom object for the currently enabled MeasurePanel
         UserStats.FirstLocation = GameObject.Find("MeasurePanel").transform.parent.parent.parent;
-        UserStats.SecondLocation = GameObject.Find("Main Camera").transform;
+        UserStats.SecondLocation = UserStats.FirstLocation;
         ChangeState(State.MeasureDistance);
         //TODO: update measured distance
     }
 
     private void DelayedFreeMove()
     {
-        Debug.Log("EnterStateButtons  " + EnterStateButtons.Count);
-        Debug.Log("ExitStateButtons  " + ExitStateButtons.Count);
         EnterStateButtons.Find(go => go.name.Equals("FreeMoveOnButton")).SetActive(false);
         ExitStateButtons.Find(go => go.name.Equals("FreeMoveOffButton")).SetActive(true);
         ExitStateButtons.Find(go => go.name.Equals("FreeMoveOffButton")).GetComponent<Button>().Select();
@@ -141,5 +139,20 @@ public class StateController : MonoBehaviour
     {
         //Debug.Log($"Changed state to {state.ToString()} from {UserStats.State.ToString()}");
         UserStats.State = state;
+    }
+
+    public void CloseAtomGUI()
+    {
+        switch (UserStats.State)
+        {
+            case State.Information:
+                ChangeState("Default");
+                break;
+            case State.MeasureDistance:
+                ChangeState("Default");
+                break;
+            default:
+                break;
+        }
     }
 }
