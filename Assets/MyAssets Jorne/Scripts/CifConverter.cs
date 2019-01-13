@@ -20,7 +20,7 @@ public class CifConverter
 
     public Structure getStructure(string pathName)
     {
-        string path = @"D:\Downloads\Austenite.cif";
+        string path = pathName;
         Structure returnStructuur;
         Convert(path);
         List<Atom> atomen = new List<Atom>();

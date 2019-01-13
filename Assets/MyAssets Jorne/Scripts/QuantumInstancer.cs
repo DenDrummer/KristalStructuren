@@ -4,11 +4,13 @@ using UnityEngine;
 
 //This class will instantiate the Atoms in the QuantumScene
 public class QuantumInstancer {
-    public const int SIZE = 3;
+
+    public int SIZE;
     private Structure structure;
 
-    public QuantumInstancer(Structure structure) {
+    public QuantumInstancer(Structure structure,int size) {
         this.structure = structure;
+        this.SIZE = size;
     }
 
     public void drawAlongXAxis(float zOffset, float yOffset)

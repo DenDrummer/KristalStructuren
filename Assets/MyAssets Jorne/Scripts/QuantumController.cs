@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 
 public class QuantumController : MonoBehaviour {
@@ -37,13 +36,13 @@ public class QuantumController : MonoBehaviour {
         atoms.Add(new Atom(3.0149999 / 2, 3.0149999 / 2, 3.0149999 / 2, "Ti"));
         atoms.Add(new Atom(3.0149999, 3.0149999, 3.0149999, "Ni"));
         structure = new Structure(atoms, (float)3.0149999, atom);
-        quantumInstancer = new QuantumInstancer(structure);
+        quantumInstancer = new QuantumInstancer(structure,3);
         quantumInstancer.drawEveryLayer();
     }
     //Draws from .cif file
     void DrawFromCifConverter() {
         structure = cifConverter.getStructure("TO IMPLEMENT");
-        quantumInstancer = new QuantumInstancer(structure);
+        quantumInstancer = new QuantumInstancer(structure,3);
         quantumInstancer.drawEveryLayer();
     }
 }
