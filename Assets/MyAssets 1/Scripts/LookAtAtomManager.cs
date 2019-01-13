@@ -28,7 +28,7 @@ public class LookAtAtomManager : MonoBehaviour
 
     public void SetGazedAt(bool gazedAt)
     {
-        if (gazedAt && (UserStats.State.Equals(State.SelectAtom) || UserStats.State.Equals(State.MeasureDistance)))
+        if (gazedAt)
         {
             //myRenderer.material.color = gazedAtColor;
             myRenderer.material.SetColor("_EmissionColor", new Color(0.15f, 0.15f, 0.15f));
@@ -55,6 +55,10 @@ public class LookAtAtomManager : MonoBehaviour
             bool activeSelf = transform.GetChild(0).gameObject.activeSelf ? true : false;
             transform.GetChild(0).gameObject.SetActive(activeSelf);
             activateMenu = activateMenu ? false : true;
+        }
+        else if (UserStats.State.Equals(State.FreeMove))
+        {
+            UserStats.State = State.SelectAtom;
         }
     }
 }
