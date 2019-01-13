@@ -471,6 +471,7 @@ GameObject:
   - component: {fileID: 224923023496659474}
   - component: {fileID: 222493724073931964}
   - component: {fileID: 114276635321391726}
+  - component: {fileID: 114975244088990352}
   m_Layer: 0
   m_Name: DistanceText
   m_TagString: Untagged
@@ -918,8 +919,8 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 114205099616576862}
-          m_MethodName: ChangeState
-          m_Mode: 5
+          m_MethodName: CloseAtomGUI
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1513,8 +1514,8 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 114205099616576862}
-          m_MethodName: ChangeState
-          m_Mode: 5
+          m_MethodName: CloseAtomGUI
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1655,8 +1656,8 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 114205099616576862}
-          m_MethodName: ChangeState
-          m_Mode: 5
+          m_MethodName: CloseAtomGUI
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1973,6 +1974,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114975244088990352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1911113852684854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7ec5e8d0966d5479f11e7214e20c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 114276635321391726}
 --- !u!114 &114976423416290166
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -91,7 +91,7 @@ public class StateController : MonoBehaviour
     {
         //get the transform of the root atom object for the currently enabled MeasurePanel
         UserStats.FirstLocation = GameObject.Find("MeasurePanel").transform.parent.parent.parent;
-        UserStats.SecondLocation = GameObject.Find("Main Camera").transform;
+        UserStats.SecondLocation = UserStats.FirstLocation;
         ChangeState(State.MeasureDistance);
         //TODO: update measured distance
     }
@@ -141,5 +141,20 @@ public class StateController : MonoBehaviour
     {
         //Debug.Log($"Changed state to {state.ToString()} from {UserStats.State.ToString()}");
         UserStats.State = state;
+    }
+
+    public void CloseAtomGUI()
+    {
+        switch (UserStats.State)
+        {
+            case State.Information:
+                ChangeState("Default");
+                break;
+            case State.MeasureDistance:
+                ChangeState("Default");
+                break;
+            default:
+                break;
+        }
     }
 }
