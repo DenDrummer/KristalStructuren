@@ -31,12 +31,10 @@ public class StateController : MonoBehaviour
 
         switch (UserStats.State)
         {
-            case State.Default:
-                break;
-            case State.FreeMove:
-                break;
             case State.MeasureDistance:
-                ExitMeasureDistance();
+                ExitMeasureDistance(
+                    state.Equals("Default") ||
+                    state.Equals("Information"));
                 break;
             case State.Teleport:
                 ExitTeleport();
@@ -72,17 +70,28 @@ public class StateController : MonoBehaviour
 
     private void ExitTeleport()
     {
-        UserStats.DisabledObjects.ForEach(go => go.SetActive(true));
+        if (UserStats.DisabledObjects != null)
+        {
+            UserStats.DisabledObjects.ForEach(go => go.SetActive(true));
+        }
     }
 
-    private static void ExitMeasureDistance()
+    private static void ExitMeasureDistance(bool keepMainGUI)
     {
-        GameObject[] atomGuis = GameObject.FindGameObjectsWithTag("atomgui");
-        if (atomGuis.Length > 0)
+        GameObject mp = GameObject.Find("MeasurePanel");
+        if (keepMainGUI && mp != null)
         {
-            foreach (GameObject atomGui in atomGuis)
+            mp.SetActive(false);
+        }
+        else
+        {
+            GameObject[] atomGuis = GameObject.FindGameObjectsWithTag("atomgui");
+            if (atomGuis.Length > 0)
             {
-                atomGui.SetActive(false);
+                foreach (GameObject atomGui in atomGuis)
+                {
+                    atomGui.SetActive(false);
+                }
             }
         }
     }
@@ -93,7 +102,6 @@ public class StateController : MonoBehaviour
         UserStats.FirstLocation = GameObject.Find("MeasurePanel").transform.parent.parent.parent;
         UserStats.SecondLocation = UserStats.FirstLocation;
         ChangeState(State.MeasureDistance);
-        //TODO: update measured distance
     }
 
     private void DelayedFreeMove()
@@ -135,7 +143,7 @@ public class StateController : MonoBehaviour
         ChangeState(State.FreeMove);
     }
 
-    public void ChangeState(State state)
+    private void ChangeState(State state)
     {
         //Debug.Log($"Changed state to {state.ToString()} from {UserStats.State.ToString()}");
         UserStats.State = state;

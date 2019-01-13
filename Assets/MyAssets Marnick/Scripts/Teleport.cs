@@ -15,20 +15,20 @@ public class Teleport : MonoBehaviour {
 
 	void Update()
 	{
-		if (Input.GetMouseButton(0))
-		{
-			heldTime += Time.deltaTime;
+		//if (Input.GetMouseButton(0))
+		//{
+		//	heldTime += Time.deltaTime;
 
-			if(heldTime >= 2f)
-			{
-				teleportPlayer.Teleport(new Vector3(0, 1, -10));
-				heldTime = 0;
-			}
-		}
-		else
-		{
-			heldTime = 0;
-		}
+		//	if(heldTime >= 2f)
+		//	{
+		//		teleportPlayer.Teleport(new Vector3(0, 1, -10));
+		//		heldTime = 0;
+		//	}
+		//}
+		//else
+		//{
+		//	heldTime = 0;
+		//}
 	}
     /*
 	public void OnPointerClick(PointerEventData eventData)

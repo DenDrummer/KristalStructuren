@@ -11,6 +11,6 @@ public class DistanceUpdater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = Mathf.Round((UserStats.FirstLocation.position - UserStats.SecondLocation.position).magnitude * 1000f) / 1000f + " atomic units";
+        text.text = Mathf.Round((UserStats.FirstLocation.position - UserStats.SecondLocation.position).magnitude * 1000f) / 1000f + "  Ångström";
     }
 }

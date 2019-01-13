@@ -12,16 +12,18 @@ public class BondManager : MonoBehaviour
     [SerializeField] private Transform BondRef;
     private GameObject[] atomsParent;
     private Color[] colors;
-    [SerializeField] private int AmountOfClosestBonds = 1;
+    private int AmountOfClosestBonds;
 
     void Start ()
     {
-	    atoms = GameObject.FindGameObjectsWithTag("atom");
-        colors = new Color[4];
+        AmountOfClosestBonds = UserStats.Bonds;
+        atoms = GameObject.FindGameObjectsWithTag("atom");
+        colors = new Color[5];
         colors[0] = Color.blue;
         colors[1] = Color.yellow;
         colors[2] = Color.black;
         colors[3] = Color.red;
+        colors[4] = Color.green;
 	    MakeBonds();
 	}
 

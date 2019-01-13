@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class Structure{
     public Transform atom;
-    private List<Atom> atoms = new List<Atom>();
+    public List<Atom> atoms = new List<Atom>();
     private const int maxRadius= 240;
-    private float maxX;
-    private float maxY;
-    private float maxZ;
-    private const int SIZE = 3;
+    public float maxX;
+    public float maxY;
+    public float maxZ;
+    
 
     public Structure(List<Atom> atoms,float maxKubus,Transform atom) {
         this.atom=atom;
@@ -19,69 +19,4 @@ public class Structure{
         maxY = maxKubus;
         maxZ = maxKubus;
     }
-
-    internal void drawFromCifTest(float a, float b, float c, float alpha, float beta, float gamma, Dictionary<string, List<string>> atoms, Dictionary<string, List<string>> symmetry)
-    {
-        maxX = a;
-        maxY = b;
-        maxZ = c;
-        Vector3 vectorX = new Vector3(maxX, 0, 0);
-        Vector3 vectorY = new Vector3(0, maxY, 0);
-        Vector3 vectorZ = new Vector3(0, 0, maxZ);
-       
-
-        throw new NotImplementedException();
-    }
-
-    //Draws the structure in prime position
-    /*public void drawSingleStruct() {
-        foreach (Atom a in atoms)
-        {
-            sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            sphere.transform.position = new Vector3((float)a.x, (float)a.y, (float)a.z);
-        }
-    }*/
-
-
-
-    public void drawAlongXAxis(float zOffset,float yOffset) {
-       int count = 0;
-        while (count < SIZE)
-        {
-          foreach (Atom a in atoms)
-            {
-                Vector3 positie= new Vector3((float)a.x + (maxX * count), (float)a.y+yOffset, (float)a.z+zOffset);
-                if (!Physics.CheckSphere(positie,(float)0.001))
-                {                  
-                    GameObject gameObject=GameObject.Instantiate(atom.gameObject,positie,Quaternion.identity);
-                    gameObject.name = a.element.abbreviation;
-                    gameObject.transform.localScale = (gameObject.transform.localScale * a.element.atomicRadius)/100;
-                    Renderer renderer = gameObject.GetComponent<Renderer>();
-                    renderer.material.color = new Color(a.element.color.r/255, a.element.color.g/255, a.element.color.b/255);
-                }
-            }
-            count++;
-        }
-    }
-    
-   public void drawHorizontalLayer(float yOffset) {
-       int zCount = 0;
-       while (zCount < SIZE)
-       {
-           drawAlongXAxis(zCount * maxZ,yOffset);
-           zCount++; 
-       }
-
-   }
-
-   public void drawEveryLayer() {
-       int yCount = 0;
-       while (yCount < SIZE) {
-           drawHorizontalLayer(yCount*maxY);
-           yCount++;
-       }
-   }
-
-   
-
 }

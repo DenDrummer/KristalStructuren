@@ -5,7 +5,7 @@ using System.IO;
 
 public static class AllElements{
 
-    public static List<Element> MendeljevElementen;
+    static List<Element> MendeljevElementen;
 
     static AllElements() {
         MendeljevElementen = new List<Element>();
@@ -144,9 +144,9 @@ public static class AllElements{
         MendeljevElementen.Add(new Element("108", " Hs ", " Hassium", " [270]", "E6002E", "", ""));
         MendeljevElementen.Add(new Element("109", " Mt ", " Meitnerium", " [276]", "EB0026", "", ""));
     }
-    public static Element getElement(string name) {
+    public static Element getElement(string element) {
         foreach (Element e in MendeljevElementen) {
-            if (name.Equals(e.abbreviation)){
+            if (element.Equals(e.abbreviation)){
                 return e;
             }
         }       
