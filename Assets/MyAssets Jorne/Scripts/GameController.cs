@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
     [SerializeField]
@@ -11,6 +14,11 @@ public class GameController : MonoBehaviour {
     Structure structure1;
     [SerializeField]
     private GameObject bondController;
+
+    [SerializeField] private Text debugGui;
+
+    [SerializeField] private GameObject exitButtons;
+    [SerializeField] private GameObject enterButtons;
 
 
     // Use this for initialization
@@ -33,4 +41,34 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void SetDebugText(String debug)
+    {
+        debugGui.text = debug;
+    }
+
+    public List<GameObject> GetExitButtons()
+    {
+        List<GameObject> buttons = new List<GameObject>();
+        foreach (Transform Button in exitButtons.transform)
+        {
+            buttons.Add(Button.gameObject);
+        }
+        return buttons;
+    }
+
+    public List<GameObject> GetEnterButtons()
+    {
+        List<GameObject> buttons = new List<GameObject>();
+        foreach (Transform enterButton in enterButtons.transform)
+        {
+            buttons.Add(enterButton.gameObject);
+        }
+        return buttons;
+    }
 }

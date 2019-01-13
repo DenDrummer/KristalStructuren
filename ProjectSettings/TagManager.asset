@@ -7,6 +7,16 @@ TagManager:
   - atomgui
   - cylinderPrefab
   - atom
+  - uiitem
+  - beartrap
+  - sword
+  - items
+  - meat
+  - bread
+  - collectables
+  - bondgui
+  - enterStateButton
+  - exitStateButton
   layers:
   - Default
   - TransparentFX

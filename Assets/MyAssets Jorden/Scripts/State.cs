@@ -3,7 +3,7 @@ public enum State
 {
     Default,
     FreeMove,
+    Information,
     MeasureDistance,
-    SelectAtom,
     Teleport
 }

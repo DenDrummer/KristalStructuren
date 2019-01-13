@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,8 +9,6 @@ public class LookAtObjectManager : MonoBehaviour {
     private Color color;
     private Color gazedAtColor;
     private bool activateMenu;
-    private GameObject[] atomGuis;
-    private GameObject[] bondGuis;
 
     void Start()
     {
@@ -20,29 +19,64 @@ public class LookAtObjectManager : MonoBehaviour {
         activateMenu = true;
     }
 
-    void update()
-    {
-        //float emission = Mathf.PingPong(Time.time, 1.0f);
-        //Color baseColor = color; 
-        //Color finalColor = baseColor * Mathf.LinearToGammaSpace(emission);
-        //myRenderer.material.SetColor("_EmissionColor", color);
-    }
-
     public void SetGazedAt(bool gazedAt)
     {
         if (gazedAt)
         {
-            //myRenderer.material.color = gazedAtColor;
             myRenderer.material.SetColor("_EmissionColor", new Color(0.15f, 0.15f, 0.15f));
         }
         else
         {
-            //myRenderer.material.color = color;
             myRenderer.material.SetColor("_EmissionColor", Color.black);
         }
     }
 
     public void ClickAtom()
+    {
+        switch (UserStats.State)
+        {
+            case State.Default:
+                SelectAtom();
+                break;
+            case State.MeasureDistance:
+                MeasureDistance();
+                break;
+            case State.Teleport:
+                Teleport();
+                break;
+            default:
+                //Do nothing
+                break;
+        }
+    }
+
+    public void ClickBond()
+    {
+        switch (UserStats.State)
+        {
+            case State.Default:
+                SelectBond();
+                break;
+            default:
+                //Do nothing
+                break;
+        }
+    }
+
+    private void Teleport()
+    {
+        Teleport tp = gameObject.GetComponent<Teleport>();
+        tp.TeleportToAtom();
+    }
+
+    private void MeasureDistance()
+    {
+        UserStats.SecondLocation = transform;
+        //TODO: update measured distance
+        throw new NotImplementedException();
+    }
+
+    public void SelectAtom()
     {
         deactivateAtomGui();
         deactivateBondGui();
@@ -51,16 +85,7 @@ public class LookAtObjectManager : MonoBehaviour {
         activateMenu = !activateMenu;
     }
 
-    public void ClickBond()
-    {
-        deactivateAtomGui();
-        deactivateBondGui();
-        //bool activeSelf = !transform.GetChild(0).gameObject.activeSelf;
-        transform.parent.GetChild(0).gameObject.SetActive(activateMenu);
-        activateMenu = !activateMenu;
-    }
-
-    public void ClickGameObject()
+    public void SelectBond()
     {
         deactivateAtomGui();
         deactivateBondGui();
@@ -69,9 +94,19 @@ public class LookAtObjectManager : MonoBehaviour {
         activateMenu = !activateMenu;
     }
 
+    /*
+    public void ClickGameObject()
+    {
+        deactivateAtomGui();
+        deactivateBondGui();
+        //bool activeSelf = !transform.GetChild(0).gameObject.activeSelf;
+        transform.parent.parent.GetChild(1).gameObject.SetActive(activateMenu);
+        activateMenu = !activateMenu;
+    }*/
+
     private void deactivateAtomGui()
     {
-        atomGuis = GameObject.FindGameObjectsWithTag("atomgui");
+        GameObject[] atomGuis = GameObject.FindGameObjectsWithTag("atomgui");
         if (atomGuis.Length > 0)
         {
             foreach (GameObject atomGui in atomGuis)
@@ -83,7 +118,7 @@ public class LookAtObjectManager : MonoBehaviour {
 
     private void deactivateBondGui()
     {
-        bondGuis = GameObject.FindGameObjectsWithTag("bondgui");
+        GameObject[] bondGuis = GameObject.FindGameObjectsWithTag("bondgui");
         if (bondGuis.Length > 0)
         {
             foreach (GameObject bondGui in bondGuis)

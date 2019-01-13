@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MenuAtomManager : MonoBehaviour
 {
@@ -8,17 +6,18 @@ public class MenuAtomManager : MonoBehaviour
 
     void Start()
     {
-        activated = false;
+        //activated = false;
     }
 
     public void ButtonPress()
     {
-        activated = !activated;
+
+        //activated = !activated;
         foreach (Transform child in transform)
         {
             foreach (Transform innerChild in child)
             {
-                innerChild.gameObject.SetActive(activated);
+                innerChild.gameObject.SetActive(!innerChild.gameObject.activeSelf);
             }
         }
     }
