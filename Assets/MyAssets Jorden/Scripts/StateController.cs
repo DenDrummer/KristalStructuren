@@ -1,8 +1,6 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,6 +33,9 @@ public class StateController : MonoBehaviour
             case State.MeasureDistance:
                 ExitMeasureDistance();
                 break;
+            case State.Teleport:
+                ExitTeleport();
+                break;
             default:
                 break;
         }
@@ -61,6 +62,11 @@ public class StateController : MonoBehaviour
         #endregion
     }
 
+    private void ExitTeleport()
+    {
+        UserStats.DisabledObjects.ForEach(go => go.SetActive(true));
+    }
+
     private static void ExitMeasureDistance()
     {
         GameObject[] atomGuis = GameObject.FindGameObjectsWithTag("atomgui");
@@ -79,6 +85,7 @@ public class StateController : MonoBehaviour
         UserStats.FirstLocation = GameObject.Find("MeasurePanel").transform.parent.parent.parent.parent.parent.parent;
         UserStats.SecondLocation = GameObject.Find("Main Camera").transform;
         ChangeState(State.MeasureDistance);
+        //TODO: update measured distance
     }
 
     private void DelayedFreeMove()
@@ -91,11 +98,11 @@ public class StateController : MonoBehaviour
 
     void Update()
     {
-        if (FreeMoveCountDown>-1)
+        if (FreeMoveCountDown > -1)
         {
             FreeMoveCountDown--;
         }
-        if (FreeMoveCountDown==0)
+        if (FreeMoveCountDown == 0)
         {
             FreeMove();
         }

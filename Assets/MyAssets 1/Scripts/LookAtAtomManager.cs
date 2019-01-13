@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class LookAtAtomManager : MonoBehaviour {
 
@@ -11,7 +7,7 @@ public class LookAtAtomManager : MonoBehaviour {
     private Color color;
     private Color gazedAtColor;
     private bool activateMenu;
-    private GameObject[] atomGuis;
+    //private GameObject[] atomGuis;
 
     void Start()
     {
@@ -73,13 +69,13 @@ public class LookAtAtomManager : MonoBehaviour {
     private void MeasureDistance()
     {
         UserStats.SecondLocation = transform;
+        //TODO: update measured distance
         throw new NotImplementedException();
     }
 
     private void SelectAtom()
     {
-        //TODO: Ask Sam about why atomGuis is stored if it's reset everytime it's used anyways
-        atomGuis = GameObject.FindGameObjectsWithTag("atomgui");
+        GameObject[] atomGuis = GameObject.FindGameObjectsWithTag("atomgui");
         if (atomGuis.Length > 0)
         {
             foreach (GameObject atomGui in atomGuis)

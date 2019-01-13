@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 using UnityEngine;
@@ -30,12 +29,6 @@ public class GameController : MonoBehaviour
         structure1 = new Structure(atoms, (float)3.0149999, atom);
         structure1.drawEveryLayer();
         bondController.GetComponent<BondManager>().enabled = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void GoToMainMenu()

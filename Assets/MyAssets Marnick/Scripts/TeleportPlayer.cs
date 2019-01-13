@@ -17,5 +17,6 @@ public class TeleportPlayer : MonoBehaviour {
         Collider[] colliders = Physics.OverlapSphere(position,0.5f);
         new List<Collider>(colliders).ForEach(c => gameObjects.Add(c.gameObject));
         gameObjects.ForEach(g => g.SetActive(false));
+        UserStats.DisabledObjects = gameObjects;
     }
 }
