@@ -246,9 +246,9 @@ PlayerSettings:
   AndroidKeystoreName: 
   AndroidKeyaliasName: 
   AndroidBuildApkPerCpuArchitecture: 0
-  AndroidTVCompatibility: 1
+  AndroidTVCompatibility: 0
   AndroidIsGame: 1
-  AndroidEnableTango: 0
+  AndroidEnableTango: 1
   androidEnableBanner: 1
   androidUseLowAccuracyLocation: 0
   m_AndroidBanners:
@@ -387,7 +387,7 @@ PlayerSettings:
     - Oculus
     - OpenVR
   - m_BuildTarget: Android
-    m_Enabled: 1
+    m_Enabled: 0
     m_Devices:
     - cardboard
   m_BuildTargetEnableVuforiaSettings: []
@@ -744,12 +744,13 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Collab: 1
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  cloudProjectId: f6d69d00-de22-4269-a286-d3aab0ad915c
+  projectName: KristalStructuren
+  organizationId: unity_yllx5-qxe5uomq
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
