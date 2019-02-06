@@ -9,10 +9,19 @@ public class QuantumInstancer {
 
     public int SIZE;
     private Structure structure;
+    private GameObject crystal;
 
-    public QuantumInstancer(Structure structure,int size) {
+    public QuantumInstancer(Structure structure,int size, GameObject crystal) {
         this.structure = structure;
         this.SIZE = size;
+        this.crystal = crystal;
+    }
+
+    public QuantumInstancer(Structure structure, int size)
+    {
+        this.structure = structure;
+        this.SIZE = size;
+        this.crystal = new GameObject("Crystal");
     }
 
     public void drawAlongXAxis(float zOffset, float yOffset)
@@ -30,6 +39,7 @@ public class QuantumInstancer {
                     gameObject.transform.localScale = (gameObject.transform.localScale * a.element.atomicRadius) / 100;
                     Renderer renderer = gameObject.GetComponent<Renderer>();
                     renderer.material.color = new Color(a.element.color.r / 255, a.element.color.g / 255, a.element.color.b / 255);
+                    gameObject.transform.SetParent(crystal.transform);
                 }
             }
             count++;
